@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default navbar-inverse">
+  <div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#/">[<span style="color: #3facd7;">&#37;</span>] Jemplate</a>
+		</div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav">
+          [% FOREACH item = navbar %]
+          <li [% IF item.url.match(jemplate) %]class="active"[% END %]><a href="[% item.url %]">[% IF item.icon %]<span class="glyphicon glyphicon-[% item.icon %]"></span>[% END %] [% item.text|ucfirst %]</a></li>
+          [% END %]
+      </ul>
+  </div>
+</nav>

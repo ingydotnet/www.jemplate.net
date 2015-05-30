@@ -1,0 +1,18 @@
+[% WRAPPER 'bootstrap-wrapper.tt' %]
+  [% PROCESS 'jumbotron.tt' %]
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Versatile</h2>
+      <p>With or without jQuery. Client or server. Asynchronous or synchronous. Want to use Backbone? No problem. Jemplate fits with your platform and workflow, not the other way round.</p>
+    </div>
+    <div class="col-md-4">
+      <h2>Compatible</h2>
+      <p>Got JavaScript? Then you can use Jemplate. No tricks, shims, polyfills, or hidden fields. Works with <a href="http://microsoft.com/ie">the worst</a> browsers, modern <a href="https://www.mozilla.org/en-US/firefox/products/">evergreen</a> <a href="https://www.google.com/chrome/">browsers</a>, and anything in-between. Anywhere fine JavaScript is available.</p>
+   </div>
+    <div class="col-md-4">
+      <h2>Familiar</h2>
+      <p>If you know <a href="http://www.template-toolkit.org/">Template Toolkit</a>, you know Jemplate. Wrappers, includes, filters and vmethods. They're all available in Jemplate.</p>
+      <p>Those without prior Template Toolkit experience will find its syntax friendly and familiar.</p>
+    </div>
+  </div>
+[% END %]
