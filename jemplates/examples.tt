@@ -1,0 +1,65 @@
+[% WRAPPER 'bootstrap-wrapper.tt' %]
+[% BLOCK code %]
+	<pre class="prettyprint"><strong>[% prefix %]</strong>
+	<code [% FOREACH d=data.pairs %]data-[% d.key %]="[% d.value %]" [% END %]>[% content.replace('fixup.+;','') | html %]</code>
+	</pre>
+	[% IF suffix %]
+	<blockquote><strong>[% suffix %]</strong>
+		[% content %]
+	</blockquote>
+	[% ELSE %]
+		[% content %]
+	[% END %]
+[% END %]
+
+<fieldset id="examples.tt/hello-world">
+	<legend>Hello World</legend>
+	[% INCLUDE code prefix=>'Template' data=>{file=>'hello.tt'} %]
+	[% INCLUDE code prefix=>'JavaScript' data=>{block=>'hello-js'} %]
+	[% WRAPPER code prefix=>'Contents of div id="hello"' data=>{block=>'hello'} suffix=>'Rendered output:' %]<div id="hello"></div>[% END %]
+	<script id="hello-js">Jemplate.process('hello.tt',{}, '#hello');</script>
+
+	<p class="lead">Watch for changes and re-render. Naive one-way binding.</p>
+	[% WRAPPER code %]Say hello to: <input type="text" placeholder="my little friend" onInput="$('#hello').jemplate('hello.tt',{ name:$(this).val() }); fixup();" />[% END %]
+</fieldset>
+
+<br/><br/>
+
+<fieldset id="examples.tt/kittys"><legend>Flickr JSONP Example</legend>
+	<p class="lead">Sometimes a developer needs to output about 12 pictures of kitty cats. It happens.</p>
+	[% INCLUDE code prefix=>'Template' data=>{file=>'kittys.tt'} %]
+	[% INCLUDE code prefix=>'JavaScript' data=>{block=>'kittys-js'} %]
+	[% WRAPPER code prefix=>'Contents of div id="flickr"' data=>{block=>'flickr'} suffix=>'Rendered output:' %]<div id="flickr"></div>[% END %]
+
+<script id="kittys-js">
+	$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?", { tags: "kitten", format: "json" },
+		function(flickr_data) {
+			 $('#flickr').jemplate('kittys.tt', flickr_data); fixup();
+		}
+	);
+</script>
+</fieldset>
+
+<br/><br/>
+
+<fieldset><legend>Moar Examples!</legend>
+<p class="lead">See the <a href="https://github.com/ingydotnet/jemplate/tree/master/eg">repository examples</a> and tests for more details.</p>
+</fieldset>
+[% END %]
+<script>
+function fixup() {
+	$('code[data-file]').each(function(idx,elm) {
+		var $elm = $(elm);
+		$.get('jemplates/'+$elm.data('file'), function(result) {
+			$elm.html(Jemplate.Filter.prototype.filters.html(result));
+		});
+	});
+	$('code[data-block]').each(function(idx,elm) {
+		var $elm = $(elm);
+		var sel = '#'+$elm.data('block');
+		var contents = $(sel).html() || $(sel).text();
+		$elm.html(Jemplate.Filter.prototype.filters.html(contents).replace(/fixup.+;/,''));
+	});
+};
+fixup();
+</script>

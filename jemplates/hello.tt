@@ -1,0 +1,1 @@
+<p class="bg-info">Hello [% name || 'World' | html %]!</p>
