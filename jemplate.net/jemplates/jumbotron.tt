@@ -1,6 +1,6 @@
 <div class="jumbotron">
   <div class="container">
-    <h1>[% title %]</h1>
+		<img src="img/jemplate.png" class="img-responsive" />
 			<p>JavaScript Templating is the best way to turn AJAX/JSON data into HTML. <strong>Jemplate</strong> is the best way to do JavaScript Templating.</p>
 			<p><strong>Jemplate</strong> beats other JavaScript Templating frameworks hands down for the following reasons:</p>
 			<ul>
