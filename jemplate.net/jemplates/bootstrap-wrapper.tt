@@ -1,0 +1,9 @@
+[% PROCESS 'nav.tt' %]
+<div class="container">
+	[% content %]
+  <hr>
+  <footer>
+    <p>&copy; [% company %] 2015</p>
+  </footer>
+</div>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
