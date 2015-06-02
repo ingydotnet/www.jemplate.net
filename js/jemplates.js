@@ -25,10 +25,10 @@ output += context.process('nav.tt');
 output += '\n<div class="container">\n	';
 //line 3 "bootstrap-wrapper.tt"
 output += stash.get('content');
-output += '\n  <hr>\n  <footer>\n    <p>&copy; ';
+output += '\n  <hr>\n  <footer>\n    <p>Copyright &copy; 2006-2015 ';
 //line 6 "bootstrap-wrapper.tt"
 output += stash.get('company');
-output += ' 2006-2015</p>\n  </footer>\n</div>\n<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>\n';
+output += '</p>\n  </footer>\n</div>\n<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);

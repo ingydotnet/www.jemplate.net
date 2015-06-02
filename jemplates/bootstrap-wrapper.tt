@@ -3,7 +3,7 @@
 	[% content %]
   <hr>
   <footer>
-    <p>&copy; [% company %] 2006-2015</p>
+    <p>Copyright &copy; 2006-2015 [% company %]</p>
   </footer>
 </div>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
