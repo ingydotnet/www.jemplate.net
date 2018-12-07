@@ -28,7 +28,7 @@ output += stash.get('content');
 output += '\n  <hr>\n  <footer>\n    <p>&copy; ';
 //line 6 "bootstrap-wrapper.tt"
 output += stash.get('company');
-output += ' 2015</p>\n  </footer>\n</div>\n<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>\n';
+output += ' 2015</p>\n  </footer>\n</div>\n<script src="https://cdn.jsdelivr.net/gh/google/code-prettify/loader/run_prettify.js"></script>\n';
     }
     catch(e) {
         var error = context.set_error(e, output);
